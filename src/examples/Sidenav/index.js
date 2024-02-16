@@ -38,6 +38,7 @@ import SidenavCollapse from "examples/Sidenav/SidenavCollapse";
 // Custom styles for the Sidenav
 import SidenavRoot from "examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
+import LogoDrone from "assets/Triangle_logo.png";
 
 // Material Dashboard 2 React context
 import {
@@ -90,7 +91,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     if (type === "collapse") {
       returnValue = href ? (
         <Link
-          href={href}
+          href={null}
           key={key}
           target="_blank"
           rel="noreferrer"
@@ -161,13 +162,19 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDTypography>
         </MDBox>
         <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
+          {brand && <MDBox component="img" src={LogoDrone} alt="Brand" width="3rem" />}
           <MDBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
           >
-            <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
-              {brandName}
+            <MDTypography
+              component="h6"
+              variant="button"
+              fontWeight="medium"
+              color={textColor}
+              style={{ marginLeft: 10, fontSize: "20px", marginTop: 3 }}
+            >
+              DRONE AI
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -180,7 +187,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       />
       <List>{renderRoutes}</List>
       <MDBox p={2} mt="auto">
-        <MDButton
+        {/* <MDButton
           component="a"
           href="https://www.creative-tim.com/product/material-dashboard-pro-react"
           target="_blank"
@@ -190,7 +197,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           fullWidth
         >
           upgrade to pro
-        </MDButton>
+        </MDButton> */}
       </MDBox>
     </SidenavRoot>
   );
